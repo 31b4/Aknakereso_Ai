@@ -5,6 +5,11 @@ $(document).ready(function() {
         let sor=$("#sor").val();
         let oszlop=$("input[name=oszlop]").val();
         let aknak=$("#akna").val();
+        if(aknak>sor*oszlop-1){
+            alert("nana")
+            $("#akna").val(10)
+            return
+        }
         for (let i=0; i<sor; i++) {
             let s=document.createElement("tr");
             s.style.color="white"
