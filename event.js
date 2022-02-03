@@ -20,6 +20,7 @@ $(document).ready(function() {
                 c.style.height="25px"
                 c.style.textAlign="center"
                 c.style.fontWeight="bold"
+                
                 s.append(c);
             }
             t.append(s);
@@ -45,6 +46,7 @@ $(document).ready(function() {
                 db_akna++;
             }
         }
+        $("td").css("background-color","grey");
         for (let i = 0; i < sor; i++) {
             for (let j = 0; j < oszlop; j++) {
                 if($("tr").eq(i).find("td").eq(j).text()=="_") {
@@ -56,12 +58,27 @@ $(document).ready(function() {
                         }
                     }
                     $("tr").eq(i).find("td").eq(j).text(db)
+                    $("tr").eq(i).find("td").eq(j).click(function(){
+                        $("tr").eq(i).find("td").eq(j).css("background-color","green")
+                    })
+                }else{
+                    $("tr").eq(i).find("td").eq(j).click(function(){
+                        $("tr").eq(i).find("td").eq(j).css("background-color","red")
+                    })
                 }
+                
             }
         }
-        $("td").css("background-color","green");
-        $("td:contains('X')").css("background-color","red");
-        console.log(mezo)
+        $("#td").click(function(){
+            if (this.text=="X") {
+                this.css("background-color","red")
+            }else{
+                this.css("background-color","green")
+            }
+        })
+        //$("td").css("background-color","green");
+        //$("td:contains('X')").css("background-color","red");
+     
         
     });
 });
